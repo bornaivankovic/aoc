@@ -1,0 +1,30 @@
+cpy a d     //                      {d=a+(14*182)
+cpy 14 c    // c=14
+cpy 182 b   // b=182
+inc d       // d++
+dec b       // b--
+jnz b -2    // if b!=0: goto 4
+dec c       // c--
+jnz c -5    // if c!=0: goto 4      }
+cpy d a     // a=d                  {inf loop
+jnz 0 0     // nop                      a=d
+cpy a b     // b=a                      { while(a!=0)
+cpy 0 a     // a=0                  
+cpy 2 c     // c=2
+jnz b 2     // if b!=0: goto 16             if a%2: b=0
+jnz 1 6     // goto 21                      else: b=1
+dec b       // b--                      }
+dec c       // c--                  }
+jnz c -4    // if c!=0: goto 14
+inc a       // a++
+jnz 1 -7    // goto 13
+cpy 2 b     // b=2
+jnz c 2     // if c!=0: goto 24
+jnz 1 4     // goto 27
+dec b       // b--
+dec c       // c--
+jnz 1 -4    // goto 22
+jnz 0 0     // nop
+out b       // print b
+jnz a -19   // if a!=0: goto 10
+jnz 1 -21   // goto 9
