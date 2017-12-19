@@ -62,10 +62,9 @@ while True:
     if len(s)==1:
         s2=list(set(old_values))
         ind=old_values.index(s2[0]) if old_values.count(s2[0])<old_values.count(s2[1]) else old_values.index(s2[1])
-        print inp[root]["weight"]-abs(old_values[old_values.index(s2[0])]-old_values[old_values.index(s2[1])])
+        print inp[root]["weight"]-abs(old_values[old_values.index(s2[0])]-old_values[old_values.index(s2[1])]),root
         break
     else:
-        f.write(str(values)+" "+str(s))
         old_values=list(values)
     index=values.index(s[0]) if values.count(s[0])<values.count(s[1]) else values.index(s[1])
     root=inp[root]["names"][index]
